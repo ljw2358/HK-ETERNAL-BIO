@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HK-ETERNAL-BIO | Life Extension Empire</title>
+    <title>HK ETERNAL-BIO | The Era of Immortality</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root { 
             --bio-green: #00ff88; 
             --deep-forest: #020a05; 
             --card-bg: rgba(10, 25, 15, 0.9);
-            --dna-blue: #00ccff;
         }
         body { 
             background-color: var(--deep-forest); 
@@ -20,6 +19,7 @@
             line-height: 1.8;
             overflow-x: hidden;
         }
+        /* 생동감 넘치는 배경 효과 */
         body::before {
             content: "";
             position: fixed;
@@ -32,6 +32,7 @@
             color: var(--bio-green); 
             text-shadow: 0 0 20px rgba(0, 255, 136, 0.6); 
         }
+        /* 언어 선택 바 */
         .lang-bar { 
             position: sticky; 
             top: 0; 
@@ -68,6 +69,7 @@
         }
         h1 { font-size: 4.5rem; margin: 0; letter-spacing: 12px; text-transform: uppercase; }
         .tagline { font-size: 1.8rem; color: #88aa99; margin-top: 40px; font-weight: 300; letter-spacing: 5px; }
+        
         .section { max-width: 1200px; margin: 100px auto; padding: 0 40px; }
         .intro-box { 
             text-align: center; 
@@ -94,10 +96,10 @@
         .card:hover { 
             border-color: var(--bio-green); 
             transform: translateY(-25px);
-            box-shadow: 0 40px 80px rgba(0, 255, 136, 0.2);
+            box-shadow: 0 40px 80px rgba(0, 255, 136, 0.3);
         }
         .card h2 { font-size: 2.2rem; margin-bottom: 30px; }
-        .card p { font-size: 1.15rem; color: #aabbcc; line-height: 2; }
+        .card p { font-size: 1.15rem; color: #aabbcc; }
 
         .contact-area { 
             background: #010502; 
@@ -152,21 +154,21 @@
 
 <div class="section">
     <div id="intro-c" class="intro-box">
-        HK ETERNAL-BIO는 생명 공학의 정점에 도전합니다. 유전자 편집, 나노 로봇, 인공 장기 기술을 통해 질병을 종식시키고 인류의 평균 수명을 획기적으로 연장하여, 죽음이 선택의 영역이 되는 불멸의 시대를 열어갑니다.
+        HK ETERNAL-BIO는 생명 공학의 정점에 도전합니다. 유전자 편집과 나노 로봇 기술을 통해 질병을 종식시키고 인류의 수명을 획기적으로 연장하여, 불멸의 시대를 열어갑니다.
     </div>
 
     <div class="grid">
         <div class="card">
             <h2 id="t1" class="neon-green">GENE EDITING</h2>
-            <p id="d1">유전자 가위 기술을 통한 선천적 질병의 완벽한 제거. 세포 단위의 노화를 방지하고 손상된 DNA를 스스로 복구하는 차세대 유전자 최적화 솔루션을 제공합니다.</p>
+            <p id="d1">유전자 가위 기술을 통한 선천적 질병의 완벽한 제거. 세포 단위의 노화를 방지하고 손상된 DNA를 스스로 복구하는 차세대 유전자 솔루션을 제공합니다.</p>
         </div>
         <div class="card">
             <h2 id="t2" class="neon-green">NANO MEDICINE</h2>
-            <p id="d2">혈관 속을 흐르는 지능형 나노 로봇 시스템. 실시간으로 암세포를 추적 파괴하고 바이러스를 차단하여, 병원에 가지 않아도 24시간 건강을 관리하는 초정밀 의료 시스템입니다.</p>
+            <p id="d2">혈관 속을 흐르는 지능형 나노 로봇 시스템. 실시간으로 암세포를 추적 파괴하고 바이러스를 차단하여, 병원 없는 초정밀 의료 시스템을 구축합니다.</p>
         </div>
         <div class="card">
             <h2 id="t3" class="neon-green">ORGAN PRINTING</h2>
-            <p id="d3">3D 바이오 프린팅 기술로 제작되는 완벽한 맞춤형 인공 장기. 노화된 장기를 새것으로 교체하여 신체의 물리적 한계를 극복하고 영원한 젊음을 유지하게 합니다.</p>
+            <p id="d3">3D 바이오 프린팅 기술로 제작되는 완벽한 맞춤형 인공 장기. 노화된 장기를 새것으로 교체하여 신체의 물리적 한계를 극복하고 영원한 젊음을 유지합니다.</p>
         </div>
     </div>
 </div>
@@ -184,7 +186,7 @@
 </section>
 
 <footer>
-    © 2026 HK ETERNAL-BIO | BIO DIVISION OF HK GROUP | FOUNDER & CHAIRMAN LEE JAE-WAN
+    © 2026 HK ETERNAL-BIO | BIO DIVISION OF HK GROUP | CHAIRMAN LEE JAE-WAN
 </footer>
 
 <script>
@@ -193,7 +195,7 @@
         en: { v: "Conquering Aging & Realizing Eternal Life", i: "HK ETERNAL-BIO challenges the pinnacle of biotechnology. We end diseases and open the era of immortality.", t: ["GENE EDITING", "NANO MEDICINE", "ORGAN PRINTING"], d: ["Repairing damaged DNA to prevent aging at the cellular level.", "Intelligent nanobots track and destroy diseases in real-time.", "Overcoming physical limits by replacing organs via 3D printing."] },
         zh: { v: "征服衰老，实现永生", i: "HK ETERNAL-BIO 挑战生物技术的顶峰。我们通过基因编辑和纳米机器人技术终结疾病。", t: ["基因编辑", "纳米医疗", "器官复制"], d: ["修复受损DNA，从细胞层面防止衰老。", "血液中的纳米机器人实时追踪并摧毁疾病。", "通过3D生物打印更换器官，克服生理极限。"] },
         ar: { v: "قهر الشيخوخة وتحقيق الحياة الأبدية", i: "تتحدى HK ETERNAL-BIO قمة التكنولوجيا الحيوية. نحن ننهي الأمراض ونفتح عصر الخلود.", t: ["تحرير الجينات", "طب النانو", "طباعة الأعضاء"], d: ["إصلاح الحمض النووي التالف لمنع الشيخوخة على المستوى الخلوي.", "روبوتات نانوية ذكية تتبع الأمراض وتدمرها في الوقت الحقيقي.", "تجاوز الحدود البدنية باستبدال الأعضاء عبر الطباعة ثلاثية الأبعاد."] },
-        jp: { v: "人類の老化征服と不老長寿の実現", i: "HK ETERNAL-BIOは生命工学の頂点に挑戦します。遺伝子編集とナノ技術で不滅の時代を切り拓きます。", t: ["遺伝子最適化", "インテ리ジェントナノ医療", "人工臓器複製"], d: ["損傷したDNAを修復し、細胞単位の老化を防止します。", "血管内のナノロボットがリアルタイムで病気を追跡・破壊します。", "3Dバイオプリンティングで臓器を交換し、肉体的限界を克服します。"] },
+        jp: { v: "人類の老化征服と不老長寿の実現", i: "HK ETERNAL-BIOは生命工학の頂点に挑戦します。遺伝子編集とナノ技術で不滅の時代を切り拓きます。", t: ["遺伝子最適化", "インテリジェントナノ医療", "人工臓器複製"], d: ["損傷したDNAを修復し、細胞単位の老化を防止します。", "血管内のナノロボットがリアルタイムで病気を追跡・破壊します。", "3Dバイ오프린팅으로 장기를 교체하여 물리적 한계를 극복합니다."] },
         es: { v: "Conquistando el envejecimiento y la vida eterna", i: "HK ETERNAL-BIO desafía la cima de la biotecnología. Terminamos con las enfermedades mediante edición genética.", t: ["EDICIÓN GENÉTICA", "NANOMEDICINA", "IMPRESIÓN DE ÓRGANOS"], d: ["Reparación de ADN dañado para prevenir el envejecimiento celular.", "Nanobots inteligentes rastrean y destruyen enfermedades en tiempo real.", "Superación de límites físicos reemplazando órganos mediante impresión 3D."] }
     };
     function chLang(l, b) {
