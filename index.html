@@ -3,211 +3,267 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HK QuantumBIO | The Era of Immortality</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <title>HK-QUANTUMBIO | 불멸의 삶을 실현하다</title>
     <style>
-        :root { 
-            --bio-green: #00ff88; 
-            --deep-forest: #020a05; 
-            --card-bg: rgba(10, 25, 15, 0.9);
+        :root {
+            --neon-green: #00ff95;
+            --bg-dark: #000805;
+            --glass: rgba(0, 255, 149, 0.05);
         }
-        body { 
-            background-color: var(--deep-forest); 
-            color: #ffffff; 
-            font-family: 'Noto Sans KR', sans-serif; 
-            margin: 0; 
-            line-height: 1.8;
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-dark);
+            color: #fff;
+            font-family: 'Pretendard', -apple-system, sans-serif;
             overflow-x: hidden;
+            line-height: 1.8;
         }
-        /* 생동감 넘치는 배경 효과 */
-        body::before {
-            content: "";
+
+        /* 바이오 테크 배경 효과 */
+        .bio-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at center, #051a10 0%, #020a05 100%);
+            background: radial-gradient(circle at center, #001a11 0%, #000805 100%);
             z-index: -1;
         }
-        .neon-green { 
-            font-family: 'Orbitron', sans-serif; 
-            color: var(--bio-green); 
-            text-shadow: 0 0 20px rgba(0, 255, 136, 0.6); 
+
+        /* 오른쪽 상단 네모난 언어 선택 박스 */
+        .lang-container {
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            z-index: 1000;
         }
-        /* 언어 선택 바 */
-        .lang-bar { 
-            position: sticky; 
-            top: 0; 
-            background: rgba(2, 10, 5, 0.95); 
-            padding: 20px; 
-            display: flex; 
-            gap: 12px; 
-            justify-content: center; 
-            z-index: 1000; 
-            border-bottom: 2px solid var(--bio-green);
-            backdrop-filter: blur(15px);
-        }
-        .lang-bar button { 
-            background: transparent; 
-            border: 1px solid #224433; 
-            color: #88aa99; 
-            padding: 10px 25px; 
-            cursor: pointer; 
-            border-radius: 30px; 
-            font-family: 'Orbitron', sans-serif; 
-            transition: 0.4s;
+
+        .lang-box {
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid var(--neon-green);
+            color: var(--neon-green);
+            padding: 8px 18px;
             font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            letter-spacing: 1px;
+            box-shadow: 0 0 15px rgba(0, 255, 149, 0.2);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        .lang-bar button:hover, .lang-bar button.active { 
-            border-color: var(--bio-green); 
-            color: white; 
-            box-shadow: 0 0 15px var(--bio-green);
-            background: rgba(0, 255, 136, 0.1);
-        }
-        header { 
-            padding: 180px 20px; 
-            text-align: center; 
-            background: linear-gradient(to bottom, #002211 0%, #020a05 100%);
-        }
-        h1 { font-size: 4.5rem; margin: 0; letter-spacing: 12px; text-transform: uppercase; }
-        .tagline { font-size: 1.8rem; color: #88aa99; margin-top: 40px; font-weight: 300; letter-spacing: 5px; }
-        
-        .section { max-width: 1200px; margin: 100px auto; padding: 0 40px; }
-        .intro-box { 
-            text-align: center; 
-            font-size: 1.4rem; 
-            color: #ccddcc; 
-            margin-bottom: 120px; 
-            padding: 50px;
-            border-left: 8px solid var(--bio-green);
-            background: rgba(0, 255, 136, 0.03);
-            border-radius: 0 30px 30px 0;
-        }
-        .grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
-            gap: 50px; 
-        }
-        .card { 
-            background: var(--card-bg); 
-            border-radius: 40px; 
-            padding: 60px; 
-            border: 1px solid #1a3322; 
-            transition: 0.6s cubic-bezier(0.165, 0.84, 0.44, 1); 
-        }
-        .card:hover { 
-            border-color: var(--bio-green); 
-            transform: translateY(-25px);
-            box-shadow: 0 40px 80px rgba(0, 255, 136, 0.3);
-        }
-        .card h2 { font-size: 2.2rem; margin-bottom: 30px; }
-        .card p { font-size: 1.15rem; color: #aabbcc; }
 
-        .contact-area { 
-            background: #010502; 
-            padding: 180px 20px; 
-            text-align: center; 
-            border-top: 5px solid var(--bio-green);
+        .lang-box:hover {
+            background: var(--neon-green);
+            color: #000;
+            box-shadow: 0 0 25px var(--neon-green);
         }
-        .social-container { display: flex; justify-content: center; gap: 40px; margin: 80px 0; flex-wrap: wrap; }
-        .btn { 
-            text-decoration: none; 
-            color: #000; 
-            background: var(--bio-green); 
-            padding: 30px 100px; 
-            border-radius: 20px; 
-            font-size: 1.8rem; 
-            font-weight: bold; 
-            font-family: 'Orbitron', sans-serif;
-            transition: 0.4s;
-            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.4);
+
+        .lang-list {
+            position: absolute;
+            top: 105%;
+            right: 0;
+            background: rgba(0, 8, 5, 0.95);
+            border: 1px solid var(--neon-green);
+            display: none;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 5px;
+            padding: 10px;
+            width: 260px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.9);
         }
-        .btn:hover { background: #fff; color: var(--bio-green); transform: scale(1.15); }
-        
-        .email-display { 
-            font-size: 3rem; 
-            color: var(--bio-green); 
-            text-decoration: none; 
-            font-family: 'Orbitron', sans-serif;
-            border-bottom: 5px solid var(--bio-green);
+
+        .lang-btn {
+            background: var(--glass);
+            border: 1px solid rgba(0, 255, 149, 0.1);
+            color: var(--neon-green);
+            padding: 6px;
+            font-size: 0.75rem;
+            cursor: pointer;
             transition: 0.3s;
-            padding-bottom: 10px;
+            text-align: center;
         }
-        .email-display:hover { color: #fff; border-color: #fff; }
 
-        footer { padding: 100px; text-align: center; color: #445544; font-family: 'Orbitron', sans-serif; font-size: 1.1rem; border-top: 1px solid #112211; }
+        .lang-btn:hover, .lang-btn.active {
+            background: var(--neon-green);
+            color: #000;
+        }
+
+        /* 메인 콘텐츠 레이아웃 */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 140px 20px 80px;
+            text-align: center;
+        }
+
+        .brand {
+            font-size: clamp(3rem, 12vw, 7.5rem);
+            font-weight: 900;
+            color: var(--neon-green);
+            text-shadow: 0 0 30px rgba(0, 255, 149, 0.4);
+            margin: 0;
+            letter-spacing: -2px;
+            animation: breathe 4s infinite alternate;
+        }
+
+        .slogan-main {
+            font-size: clamp(1.1rem, 3vw, 2rem);
+            font-weight: 200;
+            color: #e0e0e0;
+            margin-top: 30px;
+            margin-bottom: 70px;
+            letter-spacing: 3px;
+            word-break: keep-all;
+        }
+
+        /* 내용 충실히 (카드 배치) */
+        .content-section {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            text-align: left;
+            margin-top: 50px;
+        }
+
+        .bio-card {
+            background: rgba(255, 255, 255, 0.02);
+            border-left: 4px solid var(--neon-green);
+            padding: 40px;
+            transition: 0.4s;
+        }
+
+        .bio-card:hover {
+            background: rgba(0, 255, 149, 0.05);
+            transform: translateX(10px);
+        }
+
+        .bio-card h3 {
+            color: var(--neon-green);
+            font-size: 1.6rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .bio-card p {
+            font-size: 1.05rem;
+            color: #ccc;
+            margin: 0;
+        }
+
+        /* 푸터 */
+        .footer {
+            margin-top: 100px;
+            border-top: 1px solid rgba(0, 255, 149, 0.1);
+            padding: 50px 0;
+        }
+
+        .success-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--neon-green);
+            letter-spacing: 5px;
+            margin-bottom: 25px;
+        }
+
+        .mail {
+            color: rgba(255,255,255,0.3);
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .mail:hover { color: var(--neon-green); }
+
+        @keyframes breathe {
+            from { opacity: 0.8; transform: scale(1); }
+            to { opacity: 1; transform: scale(1.02); }
+        }
+
+        @media (max-width: 768px) {
+            .lang-list { width: 100vw; right: -25px; grid-template-columns: repeat(3, 1fr); }
+        }
     </style>
 </head>
 <body>
 
-<div class="lang-bar">
-    <button onclick="chLang('ko', this)" class="active">KOREAN</button>
-    <button onclick="chLang('en', this)">ENGLISH</button>
-    <button onclick="chLang('zh', this)">CHINESE</button>
-    <button onclick="chLang('ar', this)">ARABIC</button>
-    <button onclick="chLang('jp', this)">JAPANESE</button>
-    <button onclick="chLang('es', this)">SPANISH</button>
-</div>
+    <div class="bio-bg"></div>
 
-<header>
-    <h1 class="neon-green">HK QuantumBIO</h1>
-    <p id="v-tag" class="tagline">"인류의 노화 정복과 불멸의 삶을 실현하다"</p>
-</header>
-
-<div class="section">
-    <div id="intro-c" class="intro-box">
-        HK QuantumBIO는 생명 공학의 정점에 도전합니다. 유전자 편집과 나노 로봇 기술을 통해 질병을 종식시키고 인류의 수명을 획기적으로 연장하여, 불멸의 시대를 열어갑니다.
-    </div>
-
-    <div class="grid">
-        <div class="card">
-            <h2 id="t1" class="neon-green">GENE EDITING</h2>
-            <p id="d1">유전자 가위 기술을 통한 선천적 질병의 완벽한 제거. 세포 단위의 노화를 방지하고 손상된 DNA를 스스로 복구하는 차세대 유전자 솔루션을 제공합니다.</p>
+    <div class="lang-container">
+        <div class="lang-box" onclick="toggleLang()">
+            LANGUAGE <span id="arrow">▼</span>
         </div>
-        <div class="card">
-            <h2 id="t2" class="neon-green">NANO MEDICINE</h2>
-            <p id="d2">혈관 속을 흐르는 지능형 나노 로봇 시스템. 실시간으로 암세포를 추적 파괴하고 바이러스를 차단하여, 병원 없는 초정밀 의료 시스템을 구축합니다.</p>
-        </div>
-        <div class="card">
-            <h2 id="t3" class="neon-green">ORGAN PRINTING</h2>
-            <p id="d3">3D 바이오 프린팅 기술로 제작되는 완벽한 맞춤형 인공 장기. 노화된 장기를 새것으로 교체하여 신체의 물리적 한계를 극복하고 영원한 젊음을 유지합니다.</p>
+        <div id="lang-list" class="lang-list">
+            <button class="lang-btn active" onclick="change('ko', this)">한국어</button>
+            <button class="lang-btn" onclick="change('en', this)">English</button>
+            <button class="lang-btn" onclick="change('zh', this)">Chinese</button>
+            <button class="lang-btn" onclick="change('ar', this)">Arabic</button>
+            <button class="lang-btn" onclick="change('hi', this)">Hindi</button>
+            <button class="lang-btn" onclick="change('es', this)">Spanish</button>
+            <button class="lang-btn" onclick="change('pt', this)">Brazil</button>
+            <button class="lang-btn" onclick="change('uk', this)">Ukraine</button>
+            <button class="lang-btn" onclick="change('ja', this)">Japanese</button>
+            <button class="lang-btn" onclick="change('ru', this)">Russian</button>
         </div>
     </div>
-</div>
 
-<section class="contact-area">
-    <h2 class="neon-green" style="font-size: 4rem; margin-bottom: 60px;">ETERNAL LIFE NETWORK</h2>
-    <div class="social-container">
-        <a href="https://www.youtube.com/@Hyekong2025" target="_blank" class="btn">YOUTUBE</a>
-        <a href="https://www.tiktok.com/@hyekong2025" target="_blank" class="btn">TIKTOK</a>
+    <div class="container">
+        <h1 class="brand">HK-QUANTUMBIO</h1>
+        <p id="slogan" class="slogan-main">"인류의 노화 정복과 불멸의 삶을 실현하다"</p>
+
+        <div class="content-section">
+            <div class="bio-card">
+                <h3 id="h1">초정밀 유전자 편집</h3>
+                <p id="p1">퀀텀 컴퓨팅 기술을 결합한 독자적인 유전자 교정 솔루션으로 질병의 근원을 제거하고 신체 능력을 극대화합니다.</p>
+            </div>
+            <div class="bio-card">
+                <h3 id="h2">나노 로봇 재생 의학</h3>
+                <p id="p2">혈관 내에서 작동하는 초미세 나노 로봇을 통해 손상된 세포를 실시간으로 복구하고 노화 시계를 되돌립니다.</p>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div id="target" class="success-text">고객의 성공을 위하여</div>
+            <a href="mailto:info@quantumbio.com" class="mail">info@quantumbio.com</a>
+        </footer>
     </div>
-    <div style="margin-top: 120px;">
-        <p style="color: #445544; letter-spacing: 8px; margin-bottom: 30px;">GLOBAL BIO COMMUNICATION</p>
-        <a href="mailto:info@quantumbio.com" class="email-display">info@quantumbio.com</a>
-    </div>
-</section>
 
-<footer>
-    © 2026 HK QuantumBIO | BIO DIVISION OF HK GROUP | CHAIRMAN LEE JAE-WAN
-</footer>
+    <script>
+        const db = {
+            'ko': {
+                s: '"인류의 노화 정복과 불멸의 삶을 실현하다"', t: '고객의 성공을 위하여',
+                h1: '초정밀 유전자 편집', p1: '퀀텀 컴퓨팅 기술을 결합한 독자적인 유전자 교정 솔루션으로 질병의 근원을 제거하고 신체 능력을 극대화합니다.',
+                h2: '나노 로봇 재생 의학', p2: '혈관 내에서 작동하는 초미세 나노 로봇을 통해 손상된 세포를 실시간으로 복구하고 노화 시계를 되돌립니다.'
+            },
+            'en': {
+                s: '"CONQUERING AGING, REALIZING IMMORTALITY"', t: 'FOR CUSTOMER SUCCESS',
+                h1: 'Quantum Gene Editing', p1: 'Removing the roots of disease and maximizing human potential through quantum-integrated gene correction.',
+                h2: 'Nano-Robot Regeneration', p2: 'Real-time repair of damaged cells and reversal of the aging clock via intravascular nano-robotics.'
+            }
+            // 형님, 나머지 언어들도 이 포맷으로 추가하시면 됩니다!
+        };
 
-<script>
-    const data = {
-        ko: { v: "인류의 노화 정복과 불멸의 삶을 실현하다", i: "HK QuantumBIO는 생명 공학의 정점에 도전합니다. 유전자 편집과 나노 로봇 기술로 질병을 종식시키고 불멸의 시대를 열어갑니다.", t: ["유전자 최적화", "지능형 나노 의료", "인공 장기 복제"], d: ["손상된 DNA를 복구하여 세포 단위의 노화를 방지합니다.", "혈관 속 나노 로봇이 실시간으로 질병을 추적하고 파괴합니다.", "3D 바이오 프린팅으로 장기를 교체하여 물리적 한계를 극복합니다."] },
-        en: { v: "Conquering Aging & Realizing Eternal Life", i: "HK QuantumBIO challenges the pinnacle of biotechnology. We end diseases and open the era of immortality.", t: ["GENE EDITING", "NANO MEDICINE", "ORGAN PRINTING"], d: ["Repairing damaged DNA to prevent aging at the cellular level.", "Intelligent nanobots track and destroy diseases in real-time.", "Overcoming physical limits by replacing organs via 3D printing."] },
-        zh: { v: "征服衰老，实现永生", i: "HK QuantumBIO 挑战生物技术的顶峰。我们通过基因编辑和纳米机器人技术终结疾病。", t: ["基因编辑", "纳米医疗", "器官复制"], d: ["修复受损DNA，从细胞层面防止衰老。", "血液中的纳米机器人实时追踪并摧毁疾病。", "通过3D生物打印更换器官，克服生理极限。"] },
-        ar: { v: "قهر الشيخوخة وتحقيق الحياة الأبدية", i: "تتحدى HK QuantumBIO قمة التكنولوجيا الحيوية. نحن ننهي الأمراض ونفتح عصر الخلود.", t: ["تحرير الجينات", "طب النانو", "طباعة الأعضاء"], d: ["إصلاح الحمض النووي التالف لمنع الشيخوخة على المستوى الخلوي.", "روبوتات نانوية ذكية تتبع الأمراض وتدمرها في الوقت الحقيقي.", "تجاوز الحدود البدنية باستبدال الأعضاء عبر الطباعة ثلاثية الأبعاد."] },
-        jp: { v: "人類の老化征服と不老長寿の実現", i: "HK QuantumBIOは生命工학の頂点に挑戦します。遺伝子編集とナノ技術で不滅の時代を切り拓きます。", t: ["遺伝子最適化", "インテリジェントナノ医療", "人工臓器複製"], d: ["損傷したDNAを修復し、細胞単位の老化を防止します。", "血管内のナノロボットがリアルタイムで病気を追跡・破壊します。", "3Dバイ오프린팅으로 장기를 교체하여 물리적 한계를 극복합니다."] },
-        es: { v: "Conquistando el envejecimiento y la vida eterna", i: "HK QuantumBIO desafía la cima de la biotecnología. Terminamos con las enfermedades mediante edición genética.", t: ["EDICIÓN GENÉTICA", "NANOMEDICINA", "IMPRESIÓN DE ÓRGANOS"], d: ["Reparación de ADN dañado para prevenir el envejecimiento celular.", "Nanobots inteligentes rastrean y destruyen enfermedades en tiempo real.", "Superación de límites físicos reemplazando órganos mediante impresión 3D."] }
-    };
-    function chLang(l, b) {
-        document.getElementById('v-tag').innerText = data[l].v;
-        document.getElementById('intro-c').innerText = data[l].i;
-        for(let i=1; i<=3; i++){
-            document.getElementById(`t${i}`).innerText = data[l].t[i-1];
-            document.getElementById(`d${i}`).innerText = data[l].d[i-1];
+        function toggleLang() {
+            const list = document.getElementById('lang-list');
+            const arrow = document.getElementById('arrow');
+            const isOpen = list.style.display === 'grid';
+            list.style.display = isOpen ? 'none' : 'grid';
+            arrow.innerText = isOpen ? '▼' : '▲';
         }
-        document.querySelectorAll('.lang-bar button').forEach(x => x.classList.remove('active'));
-        b.classList.add('active');
-    }
-</script>
+
+        function change(lang, btn) {
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            const data = db[lang] || db['en'];
+            document.getElementById('slogan').innerText = data.s;
+            document.getElementById('target').innerText = data.t;
+            document.getElementById('h1').innerText = data.h1;
+            document.getElementById('p1').innerText = data.p1;
+            document.getElementById('h2').innerText = data.h2;
+            document.getElementById('p2').innerText = data.p2;
+            
+            toggleLang();
+        }
+    </script>
 </body>
 </html>
