@@ -1,1 +1,1 @@
-# HK-ETERNAL-BIO
+# HK-QuantumBIO
