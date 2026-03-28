@@ -6,24 +6,25 @@
     <title>HK-QUANTUMBIO | Global Immortality</title>
     <style>
         :root { --gold: #D4AF37; --black: #0a0a0a; --white: #f4f4f4; }
-        body { margin: 0; font-family: sans-serif; background: var(--black); color: var(--white); text-align: center; }
+        body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--black); color: var(--white); text-align: center; }
         .lang-bar { background: #000; padding: 15px; position: sticky; top: 0; border-bottom: 1px solid var(--gold); z-index: 1000; }
-        select { background: #222; color: var(--gold); border: 1px solid var(--gold); padding: 8px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; }
-        header { padding: 100px 20px; background: radial-gradient(circle, #222 0%, #000 100%); }
-        .logo { font-size: 3.5rem; font-weight: 900; color: var(--gold); margin: 0; }
+        select { background: #222; color: var(--gold); border: 1px solid var(--gold); padding: 8px 20px; border-radius: 5px; cursor: pointer; font-size: 1rem; }
+        header { padding: 80px 20px; background: radial-gradient(circle, #222 0%, #000 100%); }
+        .logo { font-size: clamp(2rem, 8vw, 3.5rem); font-weight: 900; color: var(--gold); margin: 0; letter-spacing: 3px; }
         .slogan { font-size: 1.2rem; margin-top: 20px; color: #aaa; min-height: 1.5em; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 40px; max-width: 1200px; margin: 0 auto; }
-        .card { background: #151515; padding: 30px; border-radius: 15px; border: 1px solid #333; }
-        .card h3 { color: var(--gold); margin-top: 0; }
-        .bank-info { background: #111; padding: 40px; border: 1px solid var(--gold); margin: 40px auto; max-width: 1120px; border-radius: 20px; }
-        footer { padding: 50px; border-top: 1px solid #222; }
+        .card { background: #151515; padding: 30px; border-radius: 15px; border: 1px solid #333; transition: 0.3s; }
+        .card:hover { border-color: var(--gold); }
+        .card h3 { color: var(--gold); margin-top: 0; font-size: 1.5rem; }
+        .bank-info { background: #111; padding: 40px; border: 1px solid var(--gold); margin: 40px auto; max-width: 90%; border-radius: 20px; }
+        footer { padding: 50px; border-top: 1px solid #222; background: #000; }
         .email { color: var(--gold); font-weight: bold; text-decoration: none; font-size: 1.3rem; }
     </style>
 </head>
 <body>
 
 <div class="lang-bar">
-    <select id="lang-select" onchange="changeLanguage(this.value)">
+    <select id="lang-select">
         <option value="ko">한국어</option>
         <option value="en">English</option>
         <option value="zh">中文</option>
@@ -64,10 +65,11 @@
 
 <footer>
     <a href="mailto:info@hkbio.com" class="email">info@hkbio.com</a>
-    <p style="color:#555; margin-top:20px;">HK-GROUP Chairman Lee Jae-wan (Hyekong)</p>
+    <p style="color:#555; margin-top:20px;">HK-GROUP Global HQ | Chairman Lee Jae-wan (Hyekong)</p>
 </footer>
 
 <script>
+// 10개 국어 데이터 완벽 세팅
 const langData = {
     ko: { slogan: "인류의 노화 정복과 불멸의 삶을 실현하다", t1: "초정밀 유전자 편집", d1: "퀀텀 컴퓨터로 유전자를 분석하여 노화의 근원을 제거합니다.", t2: "나노 로봇 재생", d2: "나노 로봇이 체내 손상된 조직을 실시간으로 복구합니다.", t3: "불멸 데이터 뱅킹", d3: "생체 데이터를 보존하여 미래 인공 신체로의 이전을 보장합니다.", bt: "UNLIMITED LIQUIDITY", bd: "HK-WORLDBANK의 30조 원 유동성을 바탕으로 인류 한계를 돌파합니다." },
     en: { slogan: "Conquering Aging, Realizing Immortality", t1: "Precision Gene Editing", d1: "Eliminating the roots of aging via quantum gene analysis.", t2: "Nano-Robot Regeneration", d2: "Real-time tissue repair by autonomous nanobots.", t3: "Immortality Data Bank", d3: "Preserving bio-data for future synthetic body transfer.", bt: "UNLIMITED LIQUIDITY", bd: "Breaking human limits with HK-WORLDBANK's $22B liquidity." },
@@ -75,24 +77,30 @@ const langData = {
     ar: { slogan: "قهر الشيخوخة وتحقيق الخلود", t1: "تعديل الجينات الدقيق", d1: "القضاء على جذور الشيخوخة عبر تحليل الكم الجيني.", t2: "تجديد النانو روبوت", d2: "إصلاح الأنسجة في الوقت الحقيقي بواسطة الروبوتات النانوية.", t3: "بنك بيانات الخلود", d3: "حفظ البيانات الحيوية للنقل إلى أجسام اصطناعية مستقبلاً.", bt: "سيولة غير محدودة", bd: "كسر الحدود البشرية بسيولة قدرها 30 تريليون وون." },
     hi: { slogan: "बुढ़ापे पर विजय, अमरता का एहसास", t1: "सटीक जीन संपादन", d1: "क्वांटम जीन विश्लेषण के माध्यम से बुढ़ापे की जड़ों को खत्म करना।", t2: "नैनो-रोबोट पुनर्जनन", d2: "नैनोबॉट्स द्वारा वास्तविक समय में ऊतकों की मरम्मत।", t3: "अमरता डेटा बैंक", d3: "भविष्य के कृत्रिम शरीर हस्तांतरण के लिए डेटा सुरक्षित करना।", bt: "असीमित तरलता", bd: "HK-WORLDBANK की 30 ट्रिलियन की तरलता के साथ सीमाएं तोड़ना।" },
     es: { slogan: "Conquistando el Envejecimiento, Inmortalidad Real", t1: "Edición Genética de Precisión", d1: "Eliminando las raíces del envejecimiento mediante análisis cuántico.", t2: "Regeneración Nano-Robótica", d2: "Reparación de tejidos en tiempo real por nanobots.", t3: "Banco de Datos de Inmortalidad", d3: "Preservación de biodatos para futura transferencia corporal.", bt: "LIQUIDEZ ILIMITADA", bd: "Superando los límites con la liquidez de HK-WORLDBANK." },
-    pt: { slogan: "Conquistando o Envelhecimento, Imortalidade Real", t1: "Edição Gênica de Precisão", d1: "Eliminando as raízes do envelhecimento via análise quântica.", t2: "Regeneração Nano-Robótica", d2: "Reparação de tecidos em tempo real por nanobots.", t3: "Banco de Dados de Imortalidade", d3: "Preservação de biodados para futura transferência corporal.", bt: "LIQUIDEZ ILIMITADA", bd: "Superando os limites com a liquidez do HK-WORLDBANK." },
+    pt: { slogan: "Conquistando o Envelhecimento, Imortalidade Real", t1: "Edição Gênica de Precisão", d1: "Eliminando as raízes do envelhecimento via análise quântica.", t2: "Regeneração Nano-Robótica", d2: "Reparação de tecidos em tempo real por nanobots.", t3: "Banco de Dados de Inmortalidad", d3: "Preservação de biodatos para futura transferência corporal.", bt: "LIQUIDEZ ILIMITADA", bd: "Superando os limites com a liquidez do HK-WORLDBANK." },
     uk: { slogan: "Перемога над старінням, реалізація безсмертя", t1: "Точне редагування генів", d1: "Усунення причин старіння за допомогою квантового аналізу.", t2: "Нанороботична регенерація", d2: "Відновлення тканин у реальному часі нанороботами.", t3: "Банк даних безсмертя", d3: "Збереження біоданих для майбутнього переносу в тіло.", bt: "НЕОБМЕЖЕНА ЛІКВІДНІСТЬ", bd: "Долаємо межі з ліквідністю HK-WORLDBANK у 30 трлн вон." },
-    ja: { slogan: "老化を征服し、不老不死を実現する", t1: "超精密遺伝子編集", d1: "量子解析により老化の根源を除去します。", t2: "ナノロボット再生", d2: "ナノロボットが損傷組織をリアルタイムで修復します。", t3: "不老不死データバンク", d3: "将来の人工ボディ移転のために生体データを保存します。", bt: "無限の流動性", bd: "HK-WORLDBANKの30兆ウォンの流動性で限界を突破。" },
+    ja: { slogan: "老化を征服し、不老不死を実現する", t1: "超精密遺伝子編集", d1: "量子解析により老化の根源を除去します。", t2: "ナノロボット再生", d2: "ナノロボット가損傷組織をリアルタイムで修復します。", t3: "不老不死データバンク", d3: "将来の人工ボディ移転のために生体データを保存します。", bt: "無限の流動性", bd: "HK-WORLDBANK의 30兆ウォンの流動性で限界を突破。" },
     ru: { slogan: "Победа над старением, реализация бессмертия", t1: "Точное редактирование генов", d1: "Устранение причин старения через квантовый анализ.", t2: "Нанороботизация", d2: "Регенерация тканей в реальном времени нанороботами.", t3: "Банк данных бессмертия", d3: "Сохранение биоданных для переноса в искусственные тела.", bt: "БЕЗГРАНИЧНАЯ ЛИКВИДНОСТЬ", bd: "Преодолеваем пределы с 30 трлн вон от HK-WORLDBANK." }
 };
 
-function changeLanguage(lang) {
-    const d = langData[lang];
-    document.getElementById('slogan').innerText = d.slogan;
-    document.getElementById('t1').innerText = d.t1;
-    document.getElementById('d1').innerText = d.d1;
-    document.getElementById('t2').innerText = d.t2;
-    document.getElementById('d2').innerText = d.d2;
-    document.getElementById('t3').innerText = d.t3;
-    document.getElementById('d3').innerText = d.d3;
-    document.getElementById('bt').innerText = d.bt;
-    document.getElementById('bd').innerText = d.bd;
-}
+// 언어 변경 실행 함수
+document.getElementById('lang-select').addEventListener('change', function() {
+    const selectedLang = this.value;
+    const d = langData[selectedLang];
+
+    if (d) {
+        document.getElementById('slogan').textContent = d.slogan;
+        document.getElementById('t1').textContent = d.t1;
+        document.getElementById('d1').textContent = d.d1;
+        document.getElementById('t2').textContent = d.t2;
+        document.getElementById('d2').textContent = d.d2;
+        document.getElementById('t3').textContent = d.t3;
+        document.getElementById('d3').textContent = d.d3;
+        document.getElementById('bt').textContent = d.bt;
+        document.getElementById('bd').textContent = d.bd;
+        console.log("Language changed to: " + selectedLang);
+    }
+});
 </script>
 </body>
 </html>
